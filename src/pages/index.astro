@@ -1,11 +1,237 @@
+
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroIllustration from '../assets/hero_illustration.svg';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+  {
+    title: "Desarrollo de landing pages",
+    description: "Orientadas a conversión para que puedas captar la mayor cantidad de clientes posibles.",
+  },
+  {
+    title: "Desarrollo de sitios web institucionales",
+    description: "Sitios web para que las instituciones puedan tener presencia en la web.",
+  },
+  {
+    title: "Implementación de ecommerce",
+    description: "Carritos de compra para que puedas vender tus productos online.",
+  },
+  {
+    title: "Sistemas de gestión a medida",
+    description: "Sistemas para que puedas gestionar tu negocio de forma eficiente.",
+  },
+  {
+    title: "Automatización de procesos",
+    description: "Integración de herramientas digitales para que puedas ahorrar tiempo y dinero.",
+  },
+  {
+    title: "Mantenimiento y soporte técnico",
+    description: "Para que tu sitio web esté siempre online y funcionando correctamente.",
+  },
+];
+
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio | Mi Portafolio">
+  <main>
+    <section id="inicio" class="hero container">
+      <div class="hero__text">
+        <p class="subtitle">Ponte en línea con un</p>
+        <h1 class="title">Sitio Web</h1>
+        <p class="tagline">Que trabaje para ti.</p>
+      </div>
+      <div class="hero__image">
+        <Image src={heroIllustration} alt="Ilustración de una persona construyendo una interfaz web." />
+      </div>
+    </section>
+
+    <section id="servicios" class="container section-pad">
+        <h2 class="section-title">Servicios que ofrezco:</h2>
+        <div class="services-grid">
+          {services.map(service => (
+            <div class="service-card">
+              <h3 class="service-title">{service.title}</h3>
+            </div>
+          ))}
+        </div>
+    </section>
+
+    <section id="quienes-somos" class="container section-pad prose lg:prose-xl">
+        <h2 class="section-title">Sobre Mí</h2>
+        <p>
+            ¡Hola! Soy una desarrolladora de software apasionada por crear soluciones web
+            que no solo son funcionales y eficientes, sino también intuitivas y
+            atractivas. Mi objetivo es ayudar a mis clientes a alcanzar sus metas
+            digitales, ya sea a través de una landing page que convierta visitantes
+            en clientes, un sitio web institucional que refleje la identidad de una
+            marca, o un sistema de gestión a medida que optimice las operaciones
+            internas.
+        </p>
+        <p>
+            Con experiencia en una variedad de tecnologías y un enfoque centrado en
+            el usuario, me dedico a entregar productos de alta calidad que generen
+            un impacto positivo.
+        </p>
+    </section>
+
+    <section id="contacto" class="container section-pad">
+        <h2 class="section-title">Hablemos</h2>
+        <p class="text-center text-xl mb-12">Construyamos juntos un sitio web que refleje tu marca y alcance tus objetivos.</p>
+        <div class="text-center">
+            <p class="text-lg"><strong>E:</strong> hola@sitioincreible.com</p>
+            <p class="text-lg"><strong>W:</strong> www.sitioincreible.com</p>
+        </div>
+    </section>
+
+  </main>
 </Layout>
+
+<style>
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      grid-template-columns: repeat(2, 1fr);
+      text-align: left;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .hero__text {
+    text-align: center;
+  }
+
+    @media (min-width: 768px) {
+    .hero__text {
+      text-align: left;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-color);
+  }
+
+  .title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 0;
+    color: var(--text-color);
+    font-family: var(--heading-font);
+  }
+
+   @media (min-width: 768px) {
+    .title {
+        font-size: 6rem;
+    }
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+    @media (min-width: 768px) {
+    .tagline {
+        font-size: 2rem;
+    }
+  }
+
+
+  .hero__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+/* General Section Styles */
+.section-pad {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+ @media (min-width: 768px) {
+    .section-pad {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+ @media (min-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+    }
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border: 2px solid var(--text-color);
+    border-radius: 12px;
+    box-shadow: 8px 8px 0 var(--primary-color);
+    text-align: center;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    font-family: var(--body-font);
+    font-weight: 700;
+}
+
+/* Prose Styles for About section */
+.prose {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prose p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Contact Section */
+.text-center {
+    text-align: center;
+}
+.text-xl {
+    font-size: 1.25rem;
+}
+.mb-12 {
+    margin-bottom: 3rem;
+}
+.text-lg {
+    font-size: 1.125rem;
+}
+
+</style>

@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: "Desarrollo de landing pages",
+    description: "Orientadas a conversión para que puedas captar la mayor cantidad de clientes posibles.",
+  },
+  {
+    title: "Desarrollo de sitios web institucionales",
+    description: "Sitios web para que las instituciones puedan tener presencia en la web.",
+  },
+  {
+    title: "Implementación de ecommerce",
+    description: "Carritos de compra para que puedas vender tus productos online.",
+  },
+  {
+    title: "Sistemas de gestión a medida",
+    description: "Sistemas para que puedas gestionar tu negocio de forma eficiente.",
+  },
+  {
+    title: "Automatización de procesos",
+    description: "Integración de herramientas digitales para que puedas ahorrar tiempo y dinero.",
+  },
+  {
+    title: "Mantenimiento y soporte técnico",
+    description: "Para que tu sitio web esté siempre online y funcionando correctamente.",
+  },
+];
+---
+
+<Layout title="Servicios">
+  <main class="container">
+    <h1 class="section-title">Servicios que ofrezco:</h1>
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="service-card">
+          <h2 class="service-title">{service.title}</h2>
+        </div>
+      ))}
+    </div>
+    <div class="cta-section">
+        <h2>Construyamos un sitio web que refleje tu marca y alcance tus objetivos.</h2>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 4rem 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border: 2px solid var(--text-color);
+    border-radius: 12px;
+    box-shadow: 8px 8px 0 var(--primary-color);
+    text-align: center;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    font-family: var(--body-font);
+    font-weight: 700;
+  }
+
+  .cta-section {
+    text-align: center;
+    margin-top: 6rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+</style>

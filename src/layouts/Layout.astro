@@ -1,23 +1,250 @@
+
+--- 
+const { title } = Astro.props;
+const phoneNumber = "51987654321"; // Reemplaza con tu número de WhatsApp
+const whatsappLink = `https://wa.me/${phoneNumber}`;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 	</head>
 	<body>
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <a href="#inicio">Mi Portafolio</a>
+        </div>
+        <nav class="main-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#quienes-somos">Quiénes Somos</a>
+          <a href="#contacto">Contáctanos</a>
+        </nav>
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
 		<slot />
+
+    <a href={whatsappLink} class="whatsapp-fab" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M19.05 4.94A10 10 0 0 0 12 2a10 10 0 0 0-7.07 17.07l-1.63 4.88l4.98-1.62A10 10 0 0 0 12 22a10 10 0 0 0 7.05-2.95a10 10 0 0 0 0-14.11m-1.42 12.68a8 8 0 0 1-11.32 0A8 8 0 0 1 4.93 6.34a8 8 0 0 1 11.32 0a8 8 0 0 1 1.42 11.28m-4.24-4.47l-.23-.14c-.5-.3-1-.21-1.33.22l-.46.56c-.32.4-.73.5-1.12.37c-.72-.25-1.63-.78-2.25-1.4c-.62-.62-1.15-1.53-1.4-2.25c-.13-.4.01-.82.37-1.12l.56-.46c.43-.33.51-.83.22-1.33l-.14-.23c-.3-.5-.88-.7-1.42-.44l-1.03.52c-.54.27-.88.85-.88 1.45c0 .7.33 1.38.7 2.01c.73 1.22 1.83 2.33 3.05 3.05c.63.37 1.31.7 2.01.7c.6 0 1.18-.34 1.45-.88l.52-1.03c.26-.54.06-1.12-.44-1.42Z"/></svg>
+    </a>
+
+    <footer class="container">
+      <p><strong>E:</strong> hola@sitioincreible.com</p>
+      <p><strong>W:</strong> www.sitioincreible.com</p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const nav = document.querySelector('.main-nav');
+
+        hamburgerBtn.addEventListener('click', () => {
+          nav.classList.toggle('is-active');
+          hamburgerBtn.classList.toggle('is-active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('is-active');
+            hamburgerBtn.classList.remove('is-active');
+          });
+        });
+      });
+    </script>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  /* Reset and Base Styles */
+  :root {
+    --primary-color: #FFD700; /* Yellow */
+    --text-color: #2D2D2D;
+    --bg-color: #F7F7F7;
+    --white: #FFFFFF;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+    --whatsapp-green: #25D366;
+  }
+
+  html {
+      scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header and Navigation */
+  header {
+    padding: 1.5rem 0;
+    background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .main-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 5px;
+  }
+
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .main-nav a:hover::after, .main-nav a.is-active::after {
+    width: 100%;
+  }
+
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    .main-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; 
+      right: 0;
+      background-color: var(--white);
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .main-nav.is-active {
+      display: flex;
+    }
+
+    .main-nav a {
+      padding: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hamburger-menu {
+      display: flex;
+    }
+
+    .hamburger-menu.is-active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger-menu.is-active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-menu.is-active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+  }
+
+  .whatsapp-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 20;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .whatsapp-fab:hover {
+      transform: scale(1.1);
+  }
+
+  footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+  }
+
+  footer p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
 </style>
