@@ -2,30 +2,112 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Quiénes Somos">
-  <main class="container">
-    <h1 class="text-4xl font-bold text-center my-8">Sobre Mí</h1>
-    <div class="prose lg:prose-xl mx-auto">
-      <p>
-        ¡Hola! Soy una desarrolladora de software apasionada por crear soluciones web
-        que no solo son funcionales y eficientes, sino también intuitivas y
-        atractivas. Mi objetivo es ayudar a mis clientes a alcanzar sus metas
-        digitales, ya sea a través de una landing page que convierta visitantes
-        en clientes, un sitio web institucional que refleje la identidad de una
-        marca, o un sistema de gestión a medida que optimice las operaciones
-        internas.
-      </p>
-      <p>
-        Con experiencia en una variedad de tecnologías y un enfoque centrado en
-        el usuario, me dedico a entregar productos de alta calidad que generen
-        un impacto positivo.
-      </p>
-    </div>
+<Layout title="Sobre Mí">
+  <main class="container about-page">
+    <section class="about-grid">
+      <article class="about-main">
+        <p class="eyebrow">SOBRE MÍ</p>
+        <h1>Desarrollo web con visión de negocio y cuidado por el detalle</h1>
+        <p>
+          Soy desarrolladora de software especializada en soluciones web a medida.
+          Me enfoco en crear experiencias digitales que combinan estética moderna,
+          funcionalidad y rendimiento.
+        </p>
+        <p>
+          Trabajo cada proyecto de forma estratégica: entendiendo objetivos,
+          perfil de clientes y propuesta de valor para construir un sitio que
+          realmente impulse resultados.
+        </p>
+      </article>
+
+      <aside class="about-side">
+        <h2>Mi enfoque</h2>
+        <ul>
+          <li>Diseño orientado a claridad y confianza.</li>
+          <li>Desarrollo escalable y responsive.</li>
+          <li>Comunicación directa durante todo el proceso.</li>
+          <li>Entrega con foco en conversión y experiencia.</li>
+        </ul>
+      </aside>
+    </section>
   </main>
 </Layout>
 
 <style>
-  .container {
-    max-width: 800px;
+.about-page {
+  padding-top: 3.8rem;
+  padding-bottom: 4.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  color: #92400e;
+  background: var(--primary-soft);
+  border: 1px solid #fed7aa;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+}
+
+.about-main,
+.about-side {
+  border-radius: var(--radius-lg);
+  padding: 1.7rem;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-main {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.about-main h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.95rem;
+}
+
+.about-main p {
+  color: var(--muted-color);
+  margin-top: 0.7rem;
+}
+
+.about-side {
+  background: linear-gradient(160deg, #ffffff 0%, #ffedd5 100%);
+  border-color: #fed7aa;
+}
+
+.about-side h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-side ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  color: #7c2d12;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 2.7rem;
+  }
+}
 </style>

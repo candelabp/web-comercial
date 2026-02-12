@@ -1,237 +1,331 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import heroIllustration from '../assets/hero_illustration.svg';
 
+const whatsappLink = 'https://wa.me/2634692670';
+
 const services = [
   {
-    title: "Desarrollo de landing pages",
-    description: "Orientadas a conversión para que puedas captar la mayor cantidad de clientes posibles.",
+    title: 'Desarrollo de landing pages',
+    description: 'Páginas orientadas a conversión para captar más clientes potenciales.',
   },
   {
-    title: "Desarrollo de sitios web institucionales",
-    description: "Sitios web para que las instituciones puedan tener presencia en la web.",
+    title: 'Sitios web institucionales',
+    description: 'Webs corporativas claras, rápidas y alineadas a la identidad de tu marca.',
   },
   {
-    title: "Implementación de ecommerce",
-    description: "Carritos de compra para que puedas vender tus productos online.",
+    title: 'Implementación de ecommerce',
+    description: 'Tiendas online listas para vender con una experiencia de compra fluida.',
   },
   {
-    title: "Sistemas de gestión a medida",
-    description: "Sistemas para que puedas gestionar tu negocio de forma eficiente.",
+    title: 'Sistemas de gestión a medida',
+    description: 'Herramientas internas para organizar procesos y mejorar productividad.',
   },
   {
-    title: "Automatización de procesos",
-    description: "Integración de herramientas digitales para que puedas ahorrar tiempo y dinero.",
+    title: 'Automatización de procesos',
+    description: 'Integración de herramientas para reducir tareas repetitivas y errores.',
   },
   {
-    title: "Mantenimiento y soporte técnico",
-    description: "Para que tu sitio web esté siempre online y funcionando correctamente.",
+    title: 'Mantenimiento y soporte técnico',
+    description: 'Acompañamiento continuo para que todo funcione estable y seguro.',
   },
 ];
-
 ---
 
 <Layout title="Inicio | Mi Portafolio">
   <main>
-    <section id="inicio" class="hero container">
+    <section id="inicio" class="hero container section-pad">
       <div class="hero__text">
-        <p class="subtitle">Ponte en línea con un</p>
-        <h1 class="title">Sitio Web</h1>
-        <p class="tagline">Que trabaje para ti.</p>
+        <p class="eyebrow">DESARROLLO WEB FREELANCE</p>
+        <h1>Tu web, <span>más clara</span>, más rápida y lista para vender.</h1>
+        <p class="hero-copy">
+          Diseño y desarrollo sitios web modernos para marcas y negocios que quieren
+          destacarse online y convertir visitas en oportunidades reales.
+        </p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn--primary">Empezar proyecto</a>
+          <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
+        </div>
       </div>
       <div class="hero__image">
-        <Image src={heroIllustration} alt="Ilustración de una persona construyendo una interfaz web." />
+        <Image src={heroIllustration} alt="Ilustración de una persona diseñando un sitio web." />
       </div>
     </section>
 
     <section id="servicios" class="container section-pad">
-        <h2 class="section-title">Servicios que ofrezco:</h2>
-        <div class="services-grid">
-          {services.map(service => (
-            <div class="service-card">
-              <h3 class="service-title">{service.title}</h3>
-            </div>
-          ))}
-        </div>
+      <div class="section-head">
+        <p class="eyebrow">SERVICIOS</p>
+        <h2 class="section-title">Soluciones para cada etapa de tu presencia digital</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((service) => (
+          <article class="service-card">
+            <h3 class="service-title">{service.title}</h3>
+            <p>{service.description}</p>
+          </article>
+        ))}
+      </div>
     </section>
 
-    <section id="quienes-somos" class="container section-pad prose lg:prose-xl">
-        <h2 class="section-title">Sobre Mí</h2>
-        <p>
-            ¡Hola! Soy una desarrolladora de software apasionada por crear soluciones web
-            que no solo son funcionales y eficientes, sino también intuitivas y
-            atractivas. Mi objetivo es ayudar a mis clientes a alcanzar sus metas
-            digitales, ya sea a través de una landing page que convierta visitantes
-            en clientes, un sitio web institucional que refleje la identidad de una
-            marca, o un sistema de gestión a medida que optimice las operaciones
-            internas.
-        </p>
-        <p>
-            Con experiencia en una variedad de tecnologías y un enfoque centrado en
-            el usuario, me dedico a entregar productos de alta calidad que generen
-            un impacto positivo.
-        </p>
+    <section id="quienes-somos" class="container section-pad">
+      <div class="about-wrap">
+        <div>
+          <p class="eyebrow">SOBRE MÍ</p>
+          <h2 class="section-title about-title">Tecnología con foco en resultados</h2>
+          <p>
+            Soy desarrolladora de software y acompaño a emprendedores y empresas a construir
+            productos web funcionales, atractivos y pensados para crecer.
+          </p>
+          <p>
+            Trabajo con enfoque estratégico y técnico para que cada sitio se vea profesional,
+            cargue rápido y transmita confianza desde el primer segundo.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>Lo que podés esperar al trabajar conmigo</h3>
+          <ul>
+            <li>Comunicación clara en cada etapa.</li>
+            <li>Desarrollo responsive para desktop y mobile.</li>
+            <li>Código limpio, escalable y mantenible.</li>
+            <li>Entrega enfocada en objetivos concretos.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="contacto" class="container section-pad">
-        <h2 class="section-title">Hablemos</h2>
-        <p class="text-center text-xl mb-12">Construyamos juntos un sitio web que refleje tu marca y alcance tus objetivos.</p>
-        <div class="text-center">
-            <p class="text-lg"><strong>E:</strong> hola@sitioincreible.com</p>
-            <p class="text-lg"><strong>W:</strong> www.sitioincreible.com</p>
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow">CONTACTO</p>
+          <h2 class="section-title contact-title">¿Tenés una idea? La convertimos en web.</h2>
+          <p>
+            Contame tu proyecto y te propongo una solución a medida para tu negocio.
+          </p>
         </div>
+        <a href={whatsappLink} class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+          Escribirme por WhatsApp
+        </a>
+      </div>
     </section>
-
   </main>
 </Layout>
 
 <style>
-/* Hero Section */
+.section-pad {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  color: #92400e;
+  background: var(--primary-soft);
+  border: 1px solid #fed7aa;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.3rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.7rem);
+}
+
 .hero {
-    display: grid;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: #b45309;
+}
+
+.hero-copy {
+  max-width: 560px;
+  color: var(--muted-color);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.hero__image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__image :global(img) {
+  width: 100%;
+  max-width: 470px;
+  border-radius: var(--radius-lg);
+  filter: drop-shadow(0 25px 40px rgba(15, 23, 42, 0.16));
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(249, 115, 22, 0.26);
+}
+
+.btn--ghost {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.service-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.55rem;
+}
+
+.service-card p {
+  color: var(--muted-color);
+  font-size: 0.97rem;
+}
+
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.about-title {
+  margin-bottom: 1rem;
+}
+
+.about-wrap p {
+  color: var(--muted-color);
+  margin-top: 0.75rem;
+}
+
+.about-card {
+  background: linear-gradient(150deg, #ffffff 0%, #ffedd5 100%);
+  border: 1px solid #fed7aa;
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.about-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #7c2d12;
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.contact-panel {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.3rem;
+}
+
+.contact-title {
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.contact-panel p {
+  color: #cbd5e1;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .about-wrap,
+  .contact-panel {
     grid-template-columns: 1fr;
-    align-items: center;
-    gap: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    display: grid;
   }
 
-  @media (min-width: 768px) {
-    .hero {
-      grid-template-columns: repeat(2, 1fr);
-      text-align: left;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+  .hero {
+    gap: 2.8rem;
   }
 
   .hero__text {
     text-align: center;
   }
 
-    @media (min-width: 768px) {
-    .hero__text {
-      text-align: left;
-    }
+  .hero-copy {
+    margin: 0 auto;
   }
 
-  .subtitle {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--text-color);
-  }
-
-  .title {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin: 0;
-    color: var(--text-color);
-    font-family: var(--heading-font);
-  }
-
-   @media (min-width: 768px) {
-    .title {
-        font-size: 6rem;
-    }
-  }
-
-  .tagline {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-color);
-  }
-
-    @media (min-width: 768px) {
-    .tagline {
-        font-size: 2rem;
-    }
-  }
-
-
-  .hero__image {
-    display: flex;
+  .hero-actions {
     justify-content: center;
   }
+}
 
-  .hero__image img {
-    max-width: 100%;
-    height: auto;
+@media (max-width: 768px) {
+  .section-pad {
+    padding-top: 3.3rem;
+    padding-bottom: 3.3rem;
   }
-
-/* General Section Styles */
-.section-pad {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
 }
-
- @media (min-width: 768px) {
-    .section-pad {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-}
-
-.section-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
- @media (min-width: 768px) {
-    .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 4rem;
-    }
-}
-
-/* Services Section */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.service-card {
-    background-color: var(--white);
-    padding: 2rem;
-    border: 2px solid var(--text-color);
-    border-radius: 12px;
-    box-shadow: 8px 8px 0 var(--primary-color);
-    text-align: center;
-}
-
-.service-title {
-    font-size: 1.5rem;
-    font-family: var(--body-font);
-    font-weight: 700;
-}
-
-/* Prose Styles for About section */
-.prose {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.prose p {
-    line-height: 1.8;
-    font-size: 1.1rem;
-}
-
-/* Contact Section */
-.text-center {
-    text-align: center;
-}
-.text-xl {
-    font-size: 1.25rem;
-}
-.mb-12 {
-    margin-bottom: 3rem;
-}
-.text-lg {
-    font-size: 1.125rem;
-}
-
 </style>

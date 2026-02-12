@@ -1,20 +1,99 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const whatsappLink = 'https://wa.me/2634692670';
 ---
 
-<Layout title="Contáctanos">
-  <main class="container">
-    <h1 class="text-4xl font-bold text-center my-8">Hablemos</h1>
-    <p class="text-center text-xl mb-12">Construyamos juntos un sitio web que refleje tu marca y alcance tus objetivos.</p>
-    <div class="text-center">
-        <p class="text-lg"><strong>E:</strong> hola@sitioincreible.com</p>
-        <p class="text-lg"><strong>W:</strong> www.sitioincreible.com</p>
-    </div>
+<Layout title="Contacto">
+  <main class="container contact-page">
+    <section class="contact-panel">
+      <p class="eyebrow">CONTACTO</p>
+      <h1>Hablemos de tu próximo sitio web</h1>
+      <p>
+        Si querés mejorar tu presencia digital, escribime y lo vemos juntas.
+        Te respondo con una propuesta clara según tus objetivos.
+      </p>
+
+      <div class="contact-actions">
+        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          Escribirme por WhatsApp
+        </a>
+        <a href="mailto:candepuerta@gmail.com" class="btn btn--ghost">
+          Enviar email
+        </a>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
-  .container {
-    max-width: 800px;
+.contact-page {
+  max-width: 860px;
+  padding-top: 3.8rem;
+  padding-bottom: 4.5rem;
+}
+
+.contact-panel {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  color: #92400e;
+  background: var(--primary-soft);
+  border: 1px solid #fed7aa;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 0.9rem;
+}
+
+.contact-panel p {
+  color: var(--muted-color);
+  font-size: 1.05rem;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+}
+
+.btn--primary {
+  color: #fff;
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+}
+
+.btn--ghost {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding-top: 2.7rem;
   }
+}
 </style>

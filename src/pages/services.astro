@@ -3,80 +3,146 @@ import Layout from '../layouts/Layout.astro';
 
 const services = [
   {
-    title: "Desarrollo de landing pages",
-    description: "Orientadas a conversión para que puedas captar la mayor cantidad de clientes posibles.",
+    title: 'Desarrollo de landing pages',
+    description: 'Páginas enfocadas en conversión, velocidad y claridad del mensaje para captar clientes.',
   },
   {
-    title: "Desarrollo de sitios web institucionales",
-    description: "Sitios web para que las instituciones puedan tener presencia en la web.",
+    title: 'Sitios web institucionales',
+    description: 'Presencia digital profesional para empresas, marcas personales y organizaciones.',
   },
   {
-    title: "Implementación de ecommerce",
-    description: "Carritos de compra para que puedas vender tus productos online.",
+    title: 'Implementación de ecommerce',
+    description: 'Tiendas online optimizadas para vender más con experiencia de compra simple.',
   },
   {
-    title: "Sistemas de gestión a medida",
-    description: "Sistemas para que puedas gestionar tu negocio de forma eficiente.",
+    title: 'Sistemas de gestión a medida',
+    description: 'Herramientas hechas a la medida de tus procesos internos y necesidades reales.',
   },
   {
-    title: "Automatización de procesos",
-    description: "Integración de herramientas digitales para que puedas ahorrar tiempo y dinero.",
+    title: 'Automatización de procesos',
+    description: 'Integraciones para reducir tareas manuales, ahorrar tiempo y evitar errores.',
   },
   {
-    title: "Mantenimiento y soporte técnico",
-    description: "Para que tu sitio web esté siempre online y funcionando correctamente.",
+    title: 'Mantenimiento y soporte técnico',
+    description: 'Seguimiento continuo para que tu web se mantenga rápida, segura y disponible.',
   },
 ];
 ---
 
 <Layout title="Servicios">
-  <main class="container">
-    <h1 class="section-title">Servicios que ofrezco:</h1>
-    <div class="services-grid">
-      {services.map(service => (
-        <div class="service-card">
-          <h2 class="service-title">{service.title}</h2>
-        </div>
+  <main class="container services-page">
+    <header class="page-head">
+      <p class="eyebrow">SERVICIOS</p>
+      <h1>Soluciones web modernas para hacer crecer tu proyecto</h1>
+      <p>
+        Cada servicio está pensado para resolver objetivos concretos: más visibilidad,
+        mejor experiencia de usuario y más conversiones.
+      </p>
+    </header>
+
+    <section class="services-grid">
+      {services.map((service) => (
+        <article class="service-card">
+          <h2>{service.title}</h2>
+          <p>{service.description}</p>
+        </article>
       ))}
-    </div>
-    <div class="cta-section">
-        <h2>Construyamos un sitio web que refleje tu marca y alcance tus objetivos.</h2>
-    </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>¿Querés que evalúe tu idea y te proponga la mejor solución?</h2>
+      <a href="/#contacto" class="btn">Hablemos de tu proyecto</a>
+    </section>
   </main>
 </Layout>
 
 <style>
-  .section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 4rem 0;
-  }
+.services-page {
+  padding-top: 3.7rem;
+  padding-bottom: 4.5rem;
+}
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
+.page-head {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 2.2rem;
+}
 
-  .service-card {
-    background-color: var(--white);
-    padding: 2rem;
-    border: 2px solid var(--text-color);
-    border-radius: 12px;
-    box-shadow: 8px 8px 0 var(--primary-color);
-    text-align: center;
-  }
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  color: #92400e;
+  background: var(--primary-soft);
+  border: 1px solid #fed7aa;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+}
 
-  .service-title {
-    font-size: 1.5rem;
-    font-family: var(--body-font);
-    font-weight: 700;
-  }
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.85rem;
+}
 
-  .cta-section {
-    text-align: center;
-    margin-top: 6rem;
-    font-size: 2rem;
-    font-weight: 700;
+.page-head p {
+  color: var(--muted-color);
+  font-size: 1.05rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.service-card h2 {
+  font-size: 1.08rem;
+  margin-bottom: 0.55rem;
+}
+
+.service-card p {
+  color: var(--muted-color);
+}
+
+.cta-section {
+  margin-top: 3rem;
+  background: #0f172a;
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.cta-section h2 {
+  color: #fff;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .services-page {
+    padding-top: 2.7rem;
   }
+}
 </style>
